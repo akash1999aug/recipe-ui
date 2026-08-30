@@ -1,0 +1,71 @@
+:host {
+  font-family: var(--rf-font-family, system-ui, sans-serif);
+}
+
+.rf-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.rf-modal {
+  background: var(--rf-color-surface, #fff);
+  border-radius: var(--rf-radius-lg, 18px);
+  box-shadow: var(--rf-shadow-md, 0 4px 14px rgba(0, 0, 0, 0.08));
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.rf-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.25rem 0.5rem;
+}
+
+.rf-modal__heading {
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--rf-color-text, #1f2937);
+}
+
+.rf-modal__close {
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--rf-color-text-muted, #6b7280);
+  padding: 0.25rem;
+  border-radius: 999px;
+}
+
+.rf-modal__close:hover {
+  background: #f3f4f6;
+}
+
+.rf-modal__body {
+  padding: 0.5rem 1.25rem 1.1rem;
+  color: var(--rf-color-text, #1f2937);
+  font-size: 0.95rem;
+}
+
+.rf-modal__footer {
+  padding: 0 1.25rem 1.25rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.rf-modal__footer:empty {
+  display: none;
+}

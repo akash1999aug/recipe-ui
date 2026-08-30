@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  font-family: var(--rf-font-family, system-ui, sans-serif);
+}
+
+.rf-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--rf-color-surface, #fff);
+  border: 1px solid var(--rf-color-border, #e5e7eb);
+  border-radius: var(--rf-radius-md, 12px);
+  padding: 0.5rem 0.75rem;
+  box-shadow: var(--rf-shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.06));
+}
+
+.rf-search:focus-within {
+  border-color: var(--rf-color-primary, #ea580c);
+}
+
+.rf-search__icon {
+  font-size: 0.95rem;
+  opacity: 0.6;
+}
+
+.rf-search__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--rf-color-text, #1f2937);
+}
+
+.rf-search__actions {
+  display: inline-flex;
+  align-items: center;
+}

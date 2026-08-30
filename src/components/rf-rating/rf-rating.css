@@ -1,0 +1,34 @@
+:host {
+  display: inline-block;
+  font-family: var(--rf-font-family, system-ui, sans-serif);
+}
+
+.rf-rating {
+  display: inline-flex;
+  gap: 0.15rem;
+}
+
+.rf-star {
+  appearance: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0.1rem;
+  color: #d1d5db;
+  transition: color 0.1s ease, transform 0.05s ease;
+}
+
+.rf-star:not(:disabled):hover,
+.rf-star:not(:disabled):hover ~ .rf-star {
+  transform: scale(1.05);
+}
+
+.rf-star--filled {
+  color: #f59e0b;
+}
+
+.rf-star:disabled {
+  cursor: default;
+}

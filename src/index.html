@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>recipe-ui component preview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <script type="module" src="/build/recipe-ui.esm.js"></script>
+  <script nomodule src="/build/recipe-ui.js"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 800px; margin: 0 auto; background: #f9fafb; }
+    section { margin-bottom: 2.5rem; }
+    h2 { font-size: 1rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+    .row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  </style>
+</head>
+<body>
+  <h1>recipe-ui — component preview</h1>
+
+  <section>
+    <h2>rf-button</h2>
+    <div class="row">
+      <rf-button variant="primary">Save Recipe</rf-button>
+      <rf-button variant="secondary">Cancel</rf-button>
+      <rf-button variant="ghost">Skip</rf-button>
+      <rf-button variant="danger">Delete</rf-button>
+      <rf-button variant="primary" disabled>Disabled</rf-button>
+    </div>
+  </section>
+
+  <section>
+    <h2>rf-chip</h2>
+    <div class="row">
+      <rf-chip label="Seafood"></rf-chip>
+      <rf-chip label="Vegetarian" selected></rf-chip>
+      <rf-chip label="Italian"></rf-chip>
+    </div>
+  </section>
+
+  <section>
+    <h2>rf-rating</h2>
+    <div class="row">
+      <rf-rating value="3"></rf-rating>
+      <rf-rating value="5" readonly></rf-rating>
+    </div>
+  </section>
+
+  <section>
+    <h2>rf-search-bar</h2>
+    <rf-search-bar placeholder="Search for recipes...">
+      <button slot="actions">Filters</button>
+    </rf-search-bar>
+  </section>
+
+  <section>
+    <h2>rf-recipe-card</h2>
+    <div class="row" style="width: 260px;">
+      <rf-recipe-card
+        meal-id="52977"
+        recipe-title="Corba"
+        image="https://www.themealdb.com/images/media/meals/58oia61564916529.jpg"
+        category="Soup"
+        area="Turkish"
+      >
+        <button slot="footer">Edit</button>
+      </rf-recipe-card>
+    </div>
+  </section>
+
+  <section>
+    <h2>rf-day-slot</h2>
+    <div class="row" style="width: 220px;">
+      <rf-day-slot day="Monday" empty="true"></rf-day-slot>
+      <rf-day-slot day="Tuesday" recipe-title="Corba" recipe-image="https://www.themealdb.com/images/media/meals/58oia61564916529.jpg" empty="false"></rf-day-slot>
+    </div>
+  </section>
+
+  <section>
+    <h2>rf-modal</h2>
+    <rf-button id="open-modal" variant="primary">Open modal</rf-button>
+    <rf-modal id="demo-modal" heading="Delete recipe?">
+      <p>This action cannot be undone.</p>
+      <div slot="footer">
+        <rf-button variant="ghost">Cancel</rf-button>
+        <rf-button variant="danger">Delete</rf-button>
+      </div>
+    </rf-modal>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('open-modal');
+        const modal = document.getElementById('demo-modal');
+        btn?.addEventListener('click', () => (modal.open = true));
+        modal?.addEventListener('modalClose', () => (modal.open = false));
+      });
+    </script>
+  </section>
+</body>
+</html>

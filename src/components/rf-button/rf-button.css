@@ -1,0 +1,65 @@
+:host {
+  display: inline-block;
+  font-family: var(--rf-font-family, system-ui, sans-serif);
+}
+
+.rf-btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--rf-radius-sm, 6px);
+  transition: transform 0.05s ease, opacity 0.15s ease, background-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.rf-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.rf-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rf-btn--primary {
+  background: var(--rf-color-primary, #ea580c);
+  color: var(--rf-color-primary-contrast, #fff);
+}
+
+.rf-btn--primary:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.rf-btn--secondary {
+  background: var(--rf-color-surface, #fff);
+  color: var(--rf-color-text, #1f2937);
+  border: 1px solid var(--rf-color-border, #e5e7eb);
+}
+
+.rf-btn--secondary:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+.rf-btn--ghost {
+  background: transparent;
+  color: var(--rf-color-text-muted, #6b7280);
+}
+
+.rf-btn--ghost:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+.rf-btn--danger {
+  background: var(--rf-color-danger, #dc2626);
+  color: #fff;
+}
+
+.rf-btn--danger:hover:not(:disabled) {
+  filter: brightness(1.05);
+}

@@ -1,0 +1,28 @@
+:host {
+  display: inline-block;
+  font-family: var(--rf-font-family, system-ui, sans-serif);
+}
+
+.rf-chip {
+  appearance: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--rf-color-border, #e5e7eb);
+  background: var(--rf-color-surface, #fff);
+  color: var(--rf-color-text, #1f2937);
+  transition: all 0.15s ease;
+}
+
+.rf-chip:hover {
+  border-color: var(--rf-color-primary, #ea580c);
+}
+
+.rf-chip--selected {
+  background: var(--rf-color-primary, #ea580c);
+  border-color: var(--rf-color-primary, #ea580c);
+  color: var(--rf-color-primary-contrast, #fff);
+}
