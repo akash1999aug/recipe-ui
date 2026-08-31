@@ -51,16 +51,16 @@ The SvelteKit app is meant to depend on this library as an **installed npm packa
 # In recipe-ui/
 npm run build
 npm pack
-# → produces @your-npm-username-recipe-ui-1.0.0.tgz (or similar)
+# → produces recipe-ui-1.0.0.tgz (or similar)
 ```
 
 Then, in the `recipe-finder-app` project:
 
 ```bash
-npm install ../recipe-ui/your-npm-username-recipe-ui-1.0.0.tgz
+npm install ../recipe-ui/recipe-ui-1.0.0.tgz
 ```
 
-This installs the package into `recipe-finder-app/node_modules` exactly like a registry install would (`package.json` gets a `"recipe-ui": "file:../recipe-ui/your-npm-username-recipe-ui-1.0.0.tgz"` dependency). Whenever a component changes, re-run `npm run build && npm pack` here, then `npm install` again in the app (npm does not watch `file:` tarball dependencies for changes).
+This installs the package into `recipe-finder-app/node_modules` exactly like a registry install would (`package.json` gets a `"recipe-ui": "file:../recipe-ui/recipe-ui-1.0.0.tgz"` dependency). Whenever a component changes, re-run `npm run build && npm pack` here, then `npm install` again in the app (npm does not watch `file:` tarball dependencies for changes).
 
 The `pack:local` npm script does the build + pack in one step:
 
@@ -70,7 +70,11 @@ npm run pack:local
 
 ## Publishing to npm
 
-1. **Pick a real package name.** `package.json` currently uses the placeholder scope `@your-npm-username/recipe-ui` — replace `your-npm-username` with your actual npm username or org (scoped packages avoid name collisions and are free to publish as public packages).
+1. **Check the name is actually available.** `package.json` currently publishes as the unscoped `recipe-ui` — a short, generic name that is very likely already taken on the public registry. Check first:
+   ```bash
+   npm view recipe-ui
+   ```
+   If that resolves to someone else's package, either pick a different unscoped name or switch to a scope you own, e.g. `@your-npm-username/recipe-ui` (rename `"name"` in `package.json`, then add back `"publishConfig": { "access": "public" }`, which is required the first time you publish a scoped package — otherwise npm defaults scoped packages to private, which needs a paid plan). Update the dependency line in `recipe-finder-app/package.json` and the imports in `src/lib/stencilInit.ts` / `src/lib/stencil.d.ts` to match whatever name you land on.
 2. **Log in:**
    ```bash
    npm login
@@ -80,7 +84,6 @@ npm run pack:local
    npm run build
    npm publish
    ```
-   `publishConfig.access` is already set to `"public"` in `package.json`, which is required the first time you publish a scoped package (otherwise npm defaults scoped packages to private, which requires a paid plan).
 4. **Versioning.** This package follows [semver](https://semver.org/). Bump the version before each publish using npm's built-in tooling rather than hand-editing `package.json`:
    ```bash
    npm version patch   # bug fixes / internal tweaks
@@ -95,11 +98,11 @@ Once published, update the SvelteKit app's dependency to point at the registry i
 
 ```bash
 # in recipe-finder-app/
-npm uninstall @your-npm-username/recipe-ui
-npm install @your-npm-username/recipe-ui@^1.0.0
+npm uninstall recipe-ui
+npm install recipe-ui@^1.0.0
 ```
 
-**Published package:** _add the npm registry link here after publishing, e.g. `https://www.npmjs.com/package/@your-npm-username/recipe-ui`_
+**Published package:** _add the npm registry link here after publishing, e.g. `https://www.npmjs.com/package/recipe-ui`_
 
 ## Project structure
 
