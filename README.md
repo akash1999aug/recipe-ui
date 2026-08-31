@@ -2,6 +2,8 @@
 
 A reusable [StencilJS](https://stenciljs.com/) web component library built for the **Recipe Finder & Meal Planner** app. The components are framework-agnostic custom elements and are consumed by the companion [`recipe-finder-app`](../recipe-finder-app) SvelteKit project as an npm dependency (not by importing from source).
 
+**GitHub repository:** https://github.com/akash1999aug/recipe-ui
+
 ## Components
 
 | Component | Purpose | Props | Events | Slots |
